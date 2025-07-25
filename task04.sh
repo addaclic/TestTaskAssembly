@@ -34,7 +34,7 @@ for unit in $units; do
     sudo sed -i "s|WorkingDirectory=$working_dir|WorkingDirectory=$new_working_dir|g" "/etc/systemd/system/$unit"
     sudo sed -i "s|ExecStart=$exec_start|ExecStart=$new_exec_start|g" "/etc/systemd/system/$unit"
     
-    echo -e "\033[38;2;201;100;59mЗапускаем обновленный сервис...\033[0m"
+    echo -e "\033[33mЗапускаем обновленный сервис...\033[0m"
     sudo systemctl daemon-reload
     sudo systemctl start "$unit"
     
