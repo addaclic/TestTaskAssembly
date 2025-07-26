@@ -41,7 +41,7 @@ def version_to_tuple(version):
 def main():
     if len(sys.argv) != 3:
         print(
-            f"{color_grey}Usage: python3 task03.py <version> <config_file>{color_end}"
+            f"{color_grey}Usage: python3 <script_name> <version> <config_file>{color_end}"
         )
         sys.exit(1)
 
