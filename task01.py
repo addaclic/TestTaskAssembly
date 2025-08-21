@@ -1,6 +1,7 @@
 import requests
 import time
 from datetime import datetime
+from CLI_color import *
 
 url = f"https://yandex.com/time/sync.json?geo=213"
 
@@ -13,7 +14,7 @@ def GetJson(url: str):
         return data
 
     except requests.exceptions.RequestException as e:
-        print(f"Ошибка при выполнении запроса: {e}")
+        print(f"{color_red}Ошибка при выполнении запроса: {e}{color_end}")
 
 
 def OutputData(data) -> datetime:
@@ -25,7 +26,7 @@ def OutputData(data) -> datetime:
     timezone_name = data["clocks"]["213"]["name"]
     readeble_time = server_timestamp.strftime("%d-%m-%Y %H:%M:%S")
     print(
-        f"\033[38;2;201;100;59mВремя сервера и временная зона\033[0m",
+        f"{color_orange}Время сервера и временная зона{color_end}\n",
         readeble_time,
         timezone_UTC,
         timezone_name,
@@ -40,13 +41,13 @@ def main():
         jsonfile = GetJson(url)
         server_time = OutputData(jsonfile)
         delta_ms = (local_time - server_time).total_seconds()
-        print(f"\033[38;2;201;100;59mDelta time:\033[0m {delta_ms: .2f} s")
+        print(f"{color_orange}Delta time:{color_end} {delta_ms: .2f} s")
         if delta_ms is not None:
             deltas.append(delta_ms)
         time.sleep(1)
     if deltas:
         avg_delta = sum(deltas) / len(deltas)
-        print(f"\033[32mСредняя дельта:\033[0m {avg_delta:.2f} мс")
+        print(f"{color_green}Средняя дельта:{color_end} {avg_delta:.2f} мс")
 
 
 if __name__ == "__main__":

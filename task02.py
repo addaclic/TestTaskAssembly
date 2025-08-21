@@ -5,12 +5,7 @@ import subprocess
 import argparse
 from datetime import datetime
 from pathlib import Path
-
-color_red = "\033[31m"
-color_green = "\033[32m"
-color_ellow = "\033[33m"
-color_grey = "\033[90m"
-color_end = "\033[0m"
+from CLI_color import *
 
 
 def log_message(message):

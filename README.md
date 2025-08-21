@@ -1,4 +1,4 @@
-# TestTaskAssembly
+# AssemblyScript
 
 ## Task 01
 

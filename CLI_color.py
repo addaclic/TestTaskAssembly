@@ -1,0 +1,6 @@
+color_red = "\033[31m"
+color_green = "\033[32m"
+color_ellow = "\033[33m"
+color_grey = "\033[90m"
+color_end = "\033[0m"
+color_orange = "\033[38;2;201;100;59m"
